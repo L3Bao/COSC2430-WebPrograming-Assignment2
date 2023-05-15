@@ -64,10 +64,9 @@ addEventOnElem(window, "scroll", activeElemOnScroll);
 
 
 
-
-
-
-
+/**
+ * product detail 
+ */
 
 const bar = document.getElementById('bar');
 const close = document.getElementById('close');
@@ -89,9 +88,9 @@ function changePrice() {
     var bookType = document.getElementById("book-type").value;
     var bookPrice = document.getElementById("price");
     if (bookType === "hardback") {
-      bookPrice.innerHTML = "$12.00";
+      bookPrice.innerHTML = "$45.00";
     } else {
-      bookPrice.innerHTML = "$5.00";
+      bookPrice.innerHTML = "$50.00";
     }
   }
   

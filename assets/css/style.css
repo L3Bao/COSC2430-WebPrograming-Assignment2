@@ -22,6 +22,7 @@
   --amber: hsl(45, 100%, 51%);
   --white: hsl(0, 0%, 100%);
   --black: hsl(0, 0%, 0%);
+  --cultured: hsl(0, 0%, 93%);
   --onyx: hsl(220, 2%, 24%);
 
   /**
@@ -395,6 +396,65 @@ body {
 
 
 
+
+/*-----------------------------------*\
+  #SEARCH BAR
+\*-----------------------------------*/
+.search-box{
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  left: 20px
+}
+.input-search{
+  height: 50px;
+  width: 50px;
+  border-style: none;
+  padding: 10px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  outline: none;
+  border-radius: 25px;
+  transition: all .5s ease-in-out;
+  background-color: #ffffff;
+  padding-right: 40px;
+  color:#000000;
+}
+.input-search::placeholder{
+  color:rgba(255, 0, 0, 0.5);
+  font-size: 15px;
+  letter-spacing: 2px;
+  font-weight: 100;
+}
+.btn-search{
+  width: 50px;
+  height: 50px;
+  border-style: none;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px;
+  color:#000000 ;
+  background-color:transparent;
+  pointer-events: painted;  
+}
+.btn-search:focus ~ .input-search{
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom:1px solid rgba(255, 0, 0, 0.5);
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+.input-search:focus{
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom:1px solid rgba(255, 0, 0, 0.5);
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
 
 /*-----------------------------------*\
   #HERO
@@ -839,16 +899,17 @@ body {
 
 
 /*-----------------------------------*\
-  #DETAIL PAGE
+  #DETAIL PAGE 
 \*-----------------------------------*/
 #details{
   display: flex;
   width: 100%;
   padding: 40px;
+  margin-top: 50px;
 }
 
 #details .big-img{
-  width: 40%;
+  width: 70%;
   margin-right: 15px;
 }
 
@@ -859,18 +920,15 @@ body {
   width: 700px;
 }
 
-.big-img img{
-  height: 448px;
-}
-
 .small-group{
   display: flex;
   flex-direction: column;
   width: 14%;
+  margin-right: 15px;
 }
 
-.small-group img{
-  height: 145px;
+.small-imgs{ 
+  margin-bottom: 5px;
 }
 
 .small-imgs:hover {
@@ -911,20 +969,20 @@ body {
   outline: none;
 }
 
-#details .book-detail button{
-  background-color: #088178;
+.book-detail .normal-1 {
+  background-color: var(--portland-orange);
   color: #fff;
-
 }
 
-.hl a:hover{
-  color:#088178;
+.book-detail .normal-2 {
+  background-color: black;
+  color: #fff;
 }
 
 #details .book-detail span{
   line-height: 25px;
 }
-button.normal{
+.book-detail button{
   font-size: 14px;
   font-weight: 600;
   padding: 15px 30px;
@@ -935,8 +993,8 @@ button.normal{
   outline: none;
   border: none;
   transition: 0.2s;
+  display: inline;
 }
-
 
 
 
@@ -1337,12 +1395,17 @@ button.normal{
 }
 
 
-/**
- * responsive for about section
- */
+  /**
+   * ABOUT SECTION, DETAIL PRODUCT
+   */
 
  
 @media only screen and (max-width: 960px) {
+
+  /**
+   * ABOUT
+   */
+
   .about .about-content {
     width: 90%;
   }
@@ -1354,7 +1417,46 @@ button.normal{
     margin-left: 20px;
     font-size: 14px;
   }
+
+  /**
+   * DETAIL PRODUCT
+   */
+
+ #details{
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  }
+  
+.group-imgs{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  }
+
+.big-img img{
+  margin-top: 50px;
+  }
+
+.small-group{
+  display: inline-flex;
+  flex-direction: row;
+  width: 310px;
+  justify-content: space-between;
+  margin-top: 10px;
+  }
+.small-imgs{
+  margin-right: 2px;
+  }
+
+#details .book-detail{
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0px auto;
+  }
 }
+
 @media only screen and (max-width: 606px) {
   .about .about-content .video iframe {
     max-width: 250px;
@@ -1370,7 +1472,10 @@ button.normal{
   #newsletter .form{
   width: 70%;
   }
+}
+
 @media only screen and (max-width: 420px) {
+  
   .about .about-content{
     flex-flow: wrap;
   }
@@ -1385,5 +1490,59 @@ button.normal{
   #newsletter .form{
     width: 100%;
   }
+  
+  
+    /**
+   * DETAIL PRODUCT
+   */
+
+  #details{
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    
+    }
+    
+  .group-imgs{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    }
+
+  .big-img img{
+    width: 310px;
+    margin-top: 50px;
+    }
+
+  .small-group{
+    display: inline-flex;
+    flex-direction: row;
+    width: 310px;
+    justify-content: space-between;
+    margin-top: 10px;
+    }
+  .small-imgs{
+    margin-right: 2px;
+    }
+
+  #details .book-detail{
+    justify-content: center;
+    align-items: center;
+    min-width: 310px;
+    }
 } 
+
+  /**
+   * SEARCH BAR
+   */
+
+@media only screen and (max-width: 606px) {
+  .btn-search:focus ~ .input-search{
+    width: 100%;
+  }
+  .input-search:focus{
+    width: 100%;
+  }
 }
